@@ -169,7 +169,7 @@ div#root {
 .product_card .bottom_wrapper {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-end !important;
+  justify-content: flex-start !important;
   padding-bottom: 15px !important;
   background: rgb(255,255,255);
   background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(200,114,242,0.47102591036414565) 100%);
