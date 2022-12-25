@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 // import {Icon} from "@mui/material";
 
-// import FilterIcon from '@mui/icons-material/Filter';
+import FilterIcon from '@mui/icons-material/Filter';
 // import {HorizontalRule} from "@mui/icons-material";
 import HorizontalSlider from "./HorizontalSlider";
 
@@ -32,7 +32,7 @@ const UploadImage = () => {
             }
             <div className="upload_images">
                 <label htmlFor="productImages" className="image-file-upload">
-                    {/*{ selectedImages.length < 1 && <FilterIcon/> }*/}
+                    { selectedImages.length < 1 && <FilterIcon/> }
                     <span>Add Images</span>
                 </label>
 

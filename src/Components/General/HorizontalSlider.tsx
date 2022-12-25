@@ -71,7 +71,7 @@ export default function HorizontalSlider({images}:HorizontalSliderData) {
     }
 
 
-    ontouchstart = (e) => {
+    window.ontouchstart = (e) => {
         if(e.touches) setOriginalTouchPoint({x: e.touches[0].pageX, y: e.touches[0].pageY});
         if (hs) hs.classList.add("active");
         setIsActive(true);
@@ -79,7 +79,7 @@ export default function HorizontalSlider({images}:HorizontalSliderData) {
         activateSlider();
     }
 
-    ontouchmove = (e) => {
+    window.ontouchmove = (e) => {
         if(sliderActivated) {
             if (e.touches[0].pageX <= window.innerWidth && e.touches[0].pageX >= 0) {
                 setTouchPos({x: e.touches[0].pageX, y: e.touches[0].pageY});
@@ -98,7 +98,7 @@ export default function HorizontalSlider({images}:HorizontalSliderData) {
     }
 
 
-    ontouchend = (e) => {
+    window.ontouchend = (e) => {
         if(sliderActivated) {
             setMoveDirection(directionEnum.IDLE);
             if (hs) hs.classList.remove("active");
