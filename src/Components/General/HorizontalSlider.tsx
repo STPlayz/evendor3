@@ -148,7 +148,7 @@ export default function HorizontalSlider({images}:HorizontalSliderData) {
                     marginLeft: isActive ? liveTouchMove() : -(slideNo * window.innerWidth)
                 }}>
                     {images && images.map((img:any, index:number) => <>
-                        <div className="slide" style={{backgroundImage: `url(${URL.createObjectURL(img).replace('blob:', '')})`}}>
+                        <div key={index} className="slide" style={{backgroundImage: `url(${URL.createObjectURL(img).replace('blob:', '')})`}}>
                             <img src={URL.createObjectURL(img)}  alt={index.toString()}/>
                             <div className="slide_counter">{(slideNo + 1)+ " / " + (maxNoSlides + 1)}</div>
                         </div>
