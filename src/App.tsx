@@ -1,8 +1,5 @@
 import React, {useEffect} from 'react';
 import './App.css';
-// import { client } from "./ApolloClient/client";
-// import {ApolloProvider, gql} from "@apollo/client";
-// import Amplify from 'aws-amplify';
 import ForYou from "./Destinations/For-You";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AddProduct from "./Destinations/AddProduct";
