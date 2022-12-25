@@ -14,9 +14,10 @@ import shoeImg from "../../Assets/shoe-img.jpg";
 // import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 // import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
 // import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 // import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
 // import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import CopyToClipboard from "./CopyToClipboard";
+// import CopyToClipboard from "./CopyToClipboard";
 // import { SvgIcon } from '@mui/material';
 
 interface ProductCardData {
@@ -110,7 +111,7 @@ export default function ProductCard({id, img, title, excerpt, views, likes, stor
                     </div>
                     <div className="menu bottom">
                         <div className="menu">
-                            {/*<MenuItem Icon={LocalOfferOutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />*/}
+                            <MenuItem Icon={LocalOfferOutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />
                             {/* IGNORE THIS ONE <MenuItem Icon={AttachmentOutlinedIcon} title="Test item 1" url="" size="normal" />*/}
                             {/*<CopyToClipboard Icon={AttachmentOutlinedIcon} title="Test item 1" size="normal" copyText="This is a test" />*/}
                             {/*<MenuItem Icon={SearchOutlinedIcon} title="Test item 1" url="/search" size="large" />*/}
