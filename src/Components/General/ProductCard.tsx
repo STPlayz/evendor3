@@ -7,18 +7,17 @@ import shoeImg from "../../Assets/shoe-img.jpg";
 // Material UI Icons
 // import AcUnitIcon from '@mui/icons-material/AcUnit';
 // import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-// import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-// import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
-// import AccessAlarmOutlinedIcon from '@mui/icons-material/AccessAlarmOutlined';
-// import Diversity2OutlinedIcon from '@mui/icons-material/Diversity2Outlined';
-// import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-// import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
-// import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import AccessAlarmOutlinedIcon from '@mui/icons-material/AccessAlarmOutlined';
+import Diversity2OutlinedIcon from '@mui/icons-material/Diversity2Outlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-// import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
-// import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-// import CopyToClipboard from "./CopyToClipboard";
-// import { SvgIcon } from '@mui/material';
+import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import {SvgIcon} from "@mui/material";
+import CopyToClipboard from "./CopyToClipboard";
 
 interface ProductCardData {
     id: number,
@@ -84,15 +83,15 @@ export default function ProductCard({id, img, title, excerpt, views, likes, stor
                     </div>
                     <div className="right_col">
                         <div className="essentials_right">
-                            {/*<div className="menu_item normal"><SvgIcon component={ShoppingBagOutlinedIcon} onClick={addToCart}>Add To Bag</SvgIcon></div>*/}
-                            {/*<div className="menu_item normal"><SvgIcon component={ForumOutlinedIcon} onClick={activateComments}>Comments</SvgIcon></div>*/}
+                            <div className="menu_item normal"><SvgIcon component={ShoppingBagOutlinedIcon} onClick={addToCart}>Add To Bag</SvgIcon></div>
+                            <div className="menu_item normal"><SvgIcon component={ForumOutlinedIcon} onClick={activateComments}>Comments</SvgIcon></div>
                         </div>
                         <div className="menu right">
                             <div className="menu">
-                                {/*<div className="menu_item normal"><SvgIcon component={ShoppingBagOutlinedIcon} onClick={addToCart}>Add To Bag</SvgIcon></div>*/}
-                                {/*<div className="menu_item normal"><SvgIcon component={ForumOutlinedIcon} onClick={activateComments}>Comments</SvgIcon></div>*/}
-                                {/*<MenuItem Icon={AccessAlarmOutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />*/}
-                                {/*<MenuItem Icon={Diversity2OutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />*/}
+                                <div className="menu_item normal"><SvgIcon component={ShoppingBagOutlinedIcon} onClick={addToCart}>Add To Bag</SvgIcon></div>
+                                <div className="menu_item normal"><SvgIcon component={ForumOutlinedIcon} onClick={activateComments}>Comments</SvgIcon></div>
+                                <MenuItem Icon={AccessAlarmOutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />
+                                <MenuItem Icon={Diversity2OutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />
                             </div>
                         </div>
                     </div>
@@ -113,10 +112,10 @@ export default function ProductCard({id, img, title, excerpt, views, likes, stor
                         <div className="menu">
                             <MenuItem Icon={LocalOfferOutlinedIcon} title="Test item 1" url="https://google.com" size="normal" />
                             {/* IGNORE THIS ONE <MenuItem Icon={AttachmentOutlinedIcon} title="Test item 1" url="" size="normal" />*/}
-                            {/*<CopyToClipboard Icon={AttachmentOutlinedIcon} title="Test item 1" size="normal" copyText="This is a test" />*/}
-                            {/*<MenuItem Icon={SearchOutlinedIcon} title="Test item 1" url="/search" size="large" />*/}
-                            {/*<MenuItem Icon={AddToPhotosOutlinedIcon} title="Test item 1" url="/add-product" size="normal" />*/}
-                            {/*<MenuItem Icon={StarBorderOutlinedIcon} title="Test item 1" url="/wishlist" size="normal" />*/}
+                            <CopyToClipboard Icon={AttachmentOutlinedIcon} title="Test item 1" size="normal" copyText="This is a test" />
+                            <MenuItem Icon={SearchOutlinedIcon} title="Test item 1" url="/search" size="large" />
+                            <MenuItem Icon={AddToPhotosOutlinedIcon} title="Test item 1" url="/add-product" size="normal" />
+                            <MenuItem Icon={StarBorderOutlinedIcon} title="Test item 1" url="/wishlist" size="normal" />
                         </div>
                     </div>
                 </div>
