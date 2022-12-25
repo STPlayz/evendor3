@@ -1,5 +1,4 @@
 import React from 'react';
-import {Interface} from "readline";
 import MenuItem from "./MenuItem";
 import Image from "src/Assets/shoe-img.jpg";
 import shoeImg from "../../Assets/shoe-img.jpg";
