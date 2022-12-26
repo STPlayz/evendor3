@@ -2,6 +2,6 @@
     "AppSyncApiName": "evendor3",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-amplify6e0d9703fbde4-staging-232604-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/40e72bc0c50a1a65c371d2fa3177f5759113c612"
+    "S3DeploymentBucket": "amplify-evendor3-dev-22514-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/02b767344cf99f238e3deddc94c1c9da66fd7517"
 }

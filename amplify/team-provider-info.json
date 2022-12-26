@@ -1,5 +1,5 @@
 {
-  "providers": {
+  "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-evendor3-dev-22514-authRole",
       "UnauthRoleArn": "arn:aws:iam::444037644658:role/amplify-evendor3-dev-22514-unauthRole",
