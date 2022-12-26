@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3evendor3storage68fe89b7",
+  "bucketName": "evendor3-storage-68fe89b7",
+  "policyUUID": "1f90cac4",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

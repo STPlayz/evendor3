@@ -1,0 +1,429 @@
+
+type ProductComments @aws_iam @aws_api_key {
+  id: ID!
+  userID: ID
+  likes: Int
+  replies: AWSJSON
+  text: String
+  productss(filter: ModelProductsProductCommentsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelProductsProductCommentsConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+enum ProductCondition {
+  USED
+  LIKENEW
+  NEW
+}
+
+type Products @aws_iam @aws_api_key {
+  id: ID!
+  images: AWSJSON
+  title: String
+  bidding_price_min: Int
+  bidding_price_current: Int
+  buy_now_price: Int
+  description: String
+  condition: ProductCondition
+  ProductComments(filter: ModelProductsProductCommentsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelProductsProductCommentsConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type ProductsProductComments @aws_iam @aws_api_key {
+  id: ID!
+  productCommentsId: ID!
+  productsId: ID!
+  productComments: ProductComments!
+  products: Products!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelProductCommentsConnection @aws_api_key @aws_iam {
+  items: [ProductComments]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelProductCommentsFilterInput {
+  id: ModelIDInput
+  userID: ModelIDInput
+  likes: ModelIntInput
+  replies: ModelStringInput
+  text: ModelStringInput
+  and: [ModelProductCommentsFilterInput]
+  or: [ModelProductCommentsFilterInput]
+  not: ModelProductCommentsFilterInput
+}
+
+type Query {
+  getProductComments(id: ID!): ProductComments @aws_api_key @aws_iam
+  listProductComments(filter: ModelProductCommentsFilterInput, limit: Int, nextToken: String): ModelProductCommentsConnection @aws_api_key @aws_iam
+  syncProductComments(filter: ModelProductCommentsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProductCommentsConnection @aws_api_key @aws_iam
+  getProducts(id: ID!): Products @aws_api_key @aws_iam
+  listProducts(filter: ModelProductsFilterInput, limit: Int, nextToken: String): ModelProductsConnection @aws_api_key @aws_iam
+  syncProducts(filter: ModelProductsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProductsConnection @aws_api_key @aws_iam
+  getProductsProductComments(id: ID!): ProductsProductComments @aws_api_key @aws_iam
+  listProductsProductComments(filter: ModelProductsProductCommentsFilterInput, limit: Int, nextToken: String): ModelProductsProductCommentsConnection @aws_api_key @aws_iam
+  syncProductsProductComments(filter: ModelProductsProductCommentsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProductsProductCommentsConnection @aws_api_key @aws_iam
+  productsProductCommentsByProductCommentsId(productCommentsId: ID!, sortDirection: ModelSortDirection, filter: ModelProductsProductCommentsFilterInput, limit: Int, nextToken: String): ModelProductsProductCommentsConnection @aws_api_key @aws_iam
+  productsProductCommentsByProductsId(productsId: ID!, sortDirection: ModelSortDirection, filter: ModelProductsProductCommentsFilterInput, limit: Int, nextToken: String): ModelProductsProductCommentsConnection @aws_api_key @aws_iam
+}
+
+input ModelProductCommentsConditionInput {
+  userID: ModelIDInput
+  likes: ModelIntInput
+  replies: ModelStringInput
+  text: ModelStringInput
+  and: [ModelProductCommentsConditionInput]
+  or: [ModelProductCommentsConditionInput]
+  not: ModelProductCommentsConditionInput
+}
+
+input CreateProductCommentsInput {
+  id: ID
+  userID: ID
+  likes: Int
+  replies: AWSJSON
+  text: String
+  _version: Int
+}
+
+input UpdateProductCommentsInput {
+  id: ID!
+  userID: ID
+  likes: Int
+  replies: AWSJSON
+  text: String
+  _version: Int
+}
+
+input DeleteProductCommentsInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createProductComments(input: CreateProductCommentsInput!, condition: ModelProductCommentsConditionInput): ProductComments @aws_api_key @aws_iam
+  updateProductComments(input: UpdateProductCommentsInput!, condition: ModelProductCommentsConditionInput): ProductComments @aws_api_key @aws_iam
+  deleteProductComments(input: DeleteProductCommentsInput!, condition: ModelProductCommentsConditionInput): ProductComments @aws_api_key @aws_iam
+  createProducts(input: CreateProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
+  updateProducts(input: UpdateProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
+  deleteProducts(input: DeleteProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
+  createProductsProductComments(input: CreateProductsProductCommentsInput!, condition: ModelProductsProductCommentsConditionInput): ProductsProductComments @aws_api_key @aws_iam
+  updateProductsProductComments(input: UpdateProductsProductCommentsInput!, condition: ModelProductsProductCommentsConditionInput): ProductsProductComments @aws_api_key @aws_iam
+  deleteProductsProductComments(input: DeleteProductsProductCommentsInput!, condition: ModelProductsProductCommentsConditionInput): ProductsProductComments @aws_api_key @aws_iam
+}
+
+input ModelSubscriptionProductCommentsFilterInput {
+  id: ModelSubscriptionIDInput
+  userID: ModelSubscriptionIDInput
+  likes: ModelSubscriptionIntInput
+  replies: ModelSubscriptionStringInput
+  text: ModelSubscriptionStringInput
+  and: [ModelSubscriptionProductCommentsFilterInput]
+  or: [ModelSubscriptionProductCommentsFilterInput]
+}
+
+type Subscription {
+  onCreateProductComments(filter: ModelSubscriptionProductCommentsFilterInput): ProductComments @aws_subscribe(mutations: ["createProductComments"]) @aws_api_key @aws_iam
+  onUpdateProductComments(filter: ModelSubscriptionProductCommentsFilterInput): ProductComments @aws_subscribe(mutations: ["updateProductComments"]) @aws_api_key @aws_iam
+  onDeleteProductComments(filter: ModelSubscriptionProductCommentsFilterInput): ProductComments @aws_subscribe(mutations: ["deleteProductComments"]) @aws_api_key @aws_iam
+  onCreateProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["createProducts"]) @aws_api_key @aws_iam
+  onUpdateProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["updateProducts"]) @aws_api_key @aws_iam
+  onDeleteProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["deleteProducts"]) @aws_api_key @aws_iam
+  onCreateProductsProductComments(filter: ModelSubscriptionProductsProductCommentsFilterInput): ProductsProductComments @aws_subscribe(mutations: ["createProductsProductComments"]) @aws_api_key @aws_iam
+  onUpdateProductsProductComments(filter: ModelSubscriptionProductsProductCommentsFilterInput): ProductsProductComments @aws_subscribe(mutations: ["updateProductsProductComments"]) @aws_api_key @aws_iam
+  onDeleteProductsProductComments(filter: ModelSubscriptionProductsProductCommentsFilterInput): ProductsProductComments @aws_subscribe(mutations: ["deleteProductsProductComments"]) @aws_api_key @aws_iam
+}
+
+type ModelProductsConnection @aws_api_key @aws_iam {
+  items: [Products]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelProductConditionInput {
+  eq: ProductCondition
+  ne: ProductCondition
+}
+
+input ModelProductsFilterInput {
+  id: ModelIDInput
+  images: ModelStringInput
+  title: ModelStringInput
+  bidding_price_min: ModelIntInput
+  bidding_price_current: ModelIntInput
+  buy_now_price: ModelIntInput
+  description: ModelStringInput
+  condition: ModelProductConditionInput
+  and: [ModelProductsFilterInput]
+  or: [ModelProductsFilterInput]
+  not: ModelProductsFilterInput
+}
+
+input ModelProductsConditionInput {
+  images: ModelStringInput
+  title: ModelStringInput
+  bidding_price_min: ModelIntInput
+  bidding_price_current: ModelIntInput
+  buy_now_price: ModelIntInput
+  description: ModelStringInput
+  condition: ModelProductConditionInput
+  and: [ModelProductsConditionInput]
+  or: [ModelProductsConditionInput]
+  not: ModelProductsConditionInput
+}
+
+input CreateProductsInput {
+  id: ID
+  images: AWSJSON
+  title: String
+  bidding_price_min: Int
+  bidding_price_current: Int
+  buy_now_price: Int
+  description: String
+  condition: ProductCondition
+  _version: Int
+}
+
+input UpdateProductsInput {
+  id: ID!
+  images: AWSJSON
+  title: String
+  bidding_price_min: Int
+  bidding_price_current: Int
+  buy_now_price: Int
+  description: String
+  condition: ProductCondition
+  _version: Int
+}
+
+input DeleteProductsInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelSubscriptionProductsFilterInput {
+  id: ModelSubscriptionIDInput
+  images: ModelSubscriptionStringInput
+  title: ModelSubscriptionStringInput
+  bidding_price_min: ModelSubscriptionIntInput
+  bidding_price_current: ModelSubscriptionIntInput
+  buy_now_price: ModelSubscriptionIntInput
+  description: ModelSubscriptionStringInput
+  condition: ModelSubscriptionStringInput
+  and: [ModelSubscriptionProductsFilterInput]
+  or: [ModelSubscriptionProductsFilterInput]
+}
+
+type ModelProductsProductCommentsConnection @aws_iam @aws_api_key {
+  items: [ProductsProductComments]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelProductsProductCommentsFilterInput {
+  id: ModelIDInput
+  productCommentsId: ModelIDInput
+  productsId: ModelIDInput
+  and: [ModelProductsProductCommentsFilterInput]
+  or: [ModelProductsProductCommentsFilterInput]
+  not: ModelProductsProductCommentsFilterInput
+}
+
+input ModelProductsProductCommentsConditionInput {
+  productCommentsId: ModelIDInput
+  productsId: ModelIDInput
+  and: [ModelProductsProductCommentsConditionInput]
+  or: [ModelProductsProductCommentsConditionInput]
+  not: ModelProductsProductCommentsConditionInput
+}
+
+input CreateProductsProductCommentsInput {
+  id: ID
+  productCommentsId: ID!
+  productsId: ID!
+  _version: Int
+}
+
+input UpdateProductsProductCommentsInput {
+  id: ID!
+  productCommentsId: ID
+  productsId: ID
+  _version: Int
+}
+
+input DeleteProductsProductCommentsInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelSubscriptionProductsProductCommentsFilterInput {
+  id: ModelSubscriptionIDInput
+  productCommentsId: ModelSubscriptionIDInput
+  productsId: ModelSubscriptionIDInput
+  and: [ModelSubscriptionProductsProductCommentsFilterInput]
+  or: [ModelSubscriptionProductsProductCommentsFilterInput]
+}
+
