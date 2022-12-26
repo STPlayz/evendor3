@@ -1,0 +1,26 @@
+type ProductComments @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userID: ID
+  likes: Int
+  replies: AWSJSON
+  text: String
+  productss: [Products] @manyToMany(relationName: "ProductsProductComments")
+}
+
+enum ProductCondition {
+  USED
+  LIKENEW
+  NEW
+}
+
+type Products @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  images: AWSJSON
+  title: String
+  bidding_price_min: Int
+  bidding_price_current: Int
+  buy_now_price: Int
+  description: String
+  condition: ProductCondition
+  ProductComments: [ProductComments] @manyToMany(relationName: "ProductsProductComments")
+}
